@@ -279,7 +279,8 @@ Dyatlov.prototype = {
 			},
 			// HTML content of marker info bubble
 			bubble_HTML: function() {
-				return '<a href="' + this.xml_escape(this.raw.url) + '" style="color:teal;font-weight:bold;text-decoration:none" title="' + this.xml_escape(this.title) + '">' + this.xml_escape(this.raw.name) + '</a>';
+				// Change from a new-tab link to a JavaScript function that opens the iframe
+				return '<a href="javascript:void(0);" onclick="openReceiver(\'' + this.xml_escape(this.raw.url) + '\')" style="color:teal;font-weight:bold;text-decoration:none" title="' + this.xml_escape(this.title) + '">' + this.xml_escape(this.raw.name) + '</a>';
 			},
 		},
 	C),

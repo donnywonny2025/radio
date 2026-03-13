@@ -15,7 +15,7 @@
 # unprivileged target directory.
 
 # Input and output configuration
-SOURCE_URL='http://kiwisdr.com/public/'
+SOURCE_URL='http://kiwisdr.com/.public/'
 JS_FILENAME='kiwisdr_com.js'
 
 # Check dependencies, probe available features and switch color output

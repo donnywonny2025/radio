@@ -100,6 +100,21 @@ var leaflet_config = [
 ];
 toolkit = 'Leaflet';
 config = leaflet_config;
+
+// Receiver Overlay Logic
+function openReceiver(url) {
+    var overlay = document.getElementById('receiverOverlay');
+    var iframe = document.getElementById('receiverFrame');
+    iframe.src = url;
+    overlay.style.display = 'block';
+}
+
+function closeReceiver() {
+    var overlay = document.getElementById('receiverOverlay');
+    var iframe = document.getElementById('receiverFrame');
+    overlay.style.display = 'none';
+    iframe.src = ''; // stop audio immediately
+}
 </script>
 </head>
 
@@ -110,5 +125,14 @@ Rendered with <a href="https://github.com/priyom/dyatlov">dyatlov map maker</a>,
 dynamic receiver data from <a href="http://kiwisdr.com/public/">KiwiSDR.com</a>
 | <a href="https://github.com/priyom/dyatlov#legend">Legend</a>
 </div>
+
+<!-- Fullscreen Receiver Overlay -->
+<div id="receiverOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 9999; background: #000;">
+    <button onclick="closeReceiver()" style="position: absolute; top: 10px; right: 20px; z-index: 10000; padding: 10px 20px; font-size: 16px; background: #ff4444; color: white; border: none; border-radius: 5px; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.3);">
+        Close Receiver & Return to Map
+    </button>
+    <iframe id="receiverFrame" src="" style="width: 100%; height: 100%; border: none;"></iframe>
+</div>
+
 </body>
 </html>
